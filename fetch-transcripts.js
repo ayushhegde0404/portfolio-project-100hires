@@ -24,7 +24,11 @@ async function main() {
       console.log(`Fetching: ${video.url}`);
       const transcript = await fetchTranscript(video.url);
       const filename = `research/youtube-transcripts/${video.author}.md`;
-      const content = `# ${video.author} — YouTube Transcript\nURL: ${video.url}\n\n${transcript.content}`;
+      const transcriptText = Array.isArray(transcript.content) 
+      ? transcript.content.map(item => item.text).join(" ")
+      : JSON.stringify(transcript, null, 2);
+    
+    const content = `# ${video.author} — YouTube Transcript\nURL: ${video.url}\n\n${transcriptText}`;
       fs.writeFileSync(filename, content);
       console.log(`Saved: ${filename}`);
     } catch (err) {
