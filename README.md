@@ -17,6 +17,8 @@
 ## Issues I ran into
 
 - Minor issue in cloning the repo but solved it in a few seconds
+- npm execution policy error
+- file explorer error in cursor, did everything manually
 
 ## Research Project — Cold Outreach Pipeline
 
